@@ -1,4 +1,9 @@
 class TalksController < ApplicationController
+
+  def show
+    @talk = Talk.find(params[:id])
+  end
+
   def create
     talk = current_user.talks.create(talk_params)
     redirect_to root_path, redirect_options_for(talk)

@@ -5,8 +5,4 @@
   <%= form.submit "Talk." %>
 <% end %>
 
-<% @talks.each do |talk| %>
-  <div>
-    <%= talk.body %>
-  </div>
-<% end %>
+<%= render @talks %>
