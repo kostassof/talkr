@@ -2,7 +2,7 @@ class SessionsController < Clearance::SessionsController
 
   private
 
-  def authenticate(...)
+  def authenticate(_)
     super(session_params)
   end
 
