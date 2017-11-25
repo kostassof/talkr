@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   def show
-    render
+    @talk = Talk.new
+    @talks = current_user.talks
   end
 end

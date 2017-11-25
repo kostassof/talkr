@@ -1,1 +1,12 @@
 <h1>Dashboard</h1>
+
+<%= form_for @talk do |form| %>
+  <%= form.text_field :body, placeholder: "talk here", required: true %>
+  <%= form.submit "Talk." %>
+<% end %>
+
+<% @talks.each do |talk| %>
+  <div>
+    <%= talk.body %>
+  </div>
+<% end %>
