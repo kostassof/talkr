@@ -12,7 +12,15 @@ class TalksController < ApplicationController
   private
 
   def talk_params
-    params.require(:talk).permit(:body)
+    { content: content_from_params }
+  end
+
+  def content_from_params
+    TextTalk.new(content_params)
+  end
+
+  def content_params
+    params.require(:talk).require(:content).permit(:body)
   end
 
   def redirect_options_for(talk)
