@@ -12,4 +12,8 @@ module TalksHelper
       link_to "like", like_talk_path(talk), method: :post
     end
   end
+
+  def autolink(text)
+    text.gsub(/@\w+/) { |mention| link_to mention, user_path(mention[1..-1]).html_safe }
+  end
 end

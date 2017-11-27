@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def liked?(talk)
     liked_talk_ids.include?(talk.id)
   end
+
+  def to_param
+    username
+  end
 end
