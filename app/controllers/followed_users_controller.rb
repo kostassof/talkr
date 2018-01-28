@@ -1,15 +1,14 @@
 class FollowedUsersController < ApplicationController
-  before_action :find_user, only: [:destroy]
+  before_action :find_user
 
   def create
-    user_to_follow = current_user
-    current_user.follow(user_to_follow)
-    redirect_to user_to_follow
+    current_user.follow(@_user)
+    redirect_to @_user
   end
 
   def destroy
     current_user.unfollow(@_user)
-    redirect_to user_to_unfollow
+    redirect_to @_user
   end
 
   private
