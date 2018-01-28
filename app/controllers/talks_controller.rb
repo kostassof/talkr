@@ -16,18 +16,15 @@ class TalksController < ApplicationController
   end
 
   def content_from_params
+    params[:content_type].new(content_params)
     case params[:talk][:content_type]
     when "TextTalk" then TextTalk.new(text_talk_content_params)
     when "PhotoTalk" then PhotoTalk.new(photo_talk_content_params)
     end
   end
 
-  def text_talk_content_params
-    params.require(:talk).require(:content).permit(:body)
-  end
-
-  def photo_talk_content_params
-    params.require(:talk).require(:content).permit(:image)
+  def content_params
+    params.require(:talk).require(:content).permit!
   end
 
   def redirect_options_for(talk)

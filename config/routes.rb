@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     root to: "dashboards#show"
   end
   root to: "homes#show"
-  resources :talks, only: [:create, :show] do
+
+  post "text_talks" => "talks#create", defaults: { content_type: TextTalk }
+  post "photo_talks" => "talks#create", defaults: { content_type: PhotoTalk } }
+
+  resources :talks, only: [:show] do
     member do
       post "like" => "likes#create"
       delete "unlike" => "likes#destroy"
