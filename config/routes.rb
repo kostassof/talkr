@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "homes#show"
 
   post "text_talks" => "talks#create", defaults: { content_type: TextTalk }
-  post "photo_talks" => "talks#create", defaults: { content_type: PhotoTalk } }
+  post "photo_talks" => "talks#create", defaults: { content_type: PhotoTalk }
 
   resources :talks, only: [:show] do
     member do
