@@ -5,7 +5,7 @@ class UsersController < Clearance::UsersController
   end
 
   def show
-    @user = User.find(username: params[:id])
+    @user = User.find_by_username(params[:id])
     @talks = @user.talks
   end
 
